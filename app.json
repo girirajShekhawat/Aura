@@ -28,6 +28,10 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-dev-client", "expo-build-properties"]
+    "plugins": [
+      "expo-dev-client",
+      "expo-build-properties",
+      "llama.rn"
+    ]
   }
 }
