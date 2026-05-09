@@ -11,8 +11,9 @@ import {
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
-import { DEFAULT_SYSTEM_PROMPT } from './src/constants/model';
-import { ChatScreen } from './src/screens/ChatScreen';
+import { NavigationContainer } from '@react-navigation/native';
+
+import { MainTabNavigator } from './src/navigation/MainTabNavigator';
 import { ModelDownloadScreen } from './src/screens/ModelDownloadScreen';
 import {
   deleteModel as deleteModelFromDisk,
@@ -207,7 +208,11 @@ export default function App() {
       </View>
     );
   } else if (phase === 'ready') {
-    body = <ChatScreen systemPrompt={DEFAULT_SYSTEM_PROMPT} />;
+    body = (
+      <NavigationContainer>
+        <MainTabNavigator />
+      </NavigationContainer>
+    );
   } else if (phase === 'error') {
     body = (
       <View style={styles.centered}>
